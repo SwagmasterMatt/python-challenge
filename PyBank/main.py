@@ -23,13 +23,12 @@ with open(BudgetPath) as csvfile:
 
 #Loop through the Profit List and calculate the difference values then store them
 for i in range(len(Profit) - 1):
-    #Diff = int(Profit[i+1]) - int(Profit[i])
     Diff = Profit[i+1] - Profit[i]
     Difference.append(int(Diff))
-    #print(Difference[i]) - Delete Later
 
 
 #Calculate Results
+Total_Months = len(Date)
 Total = sum(Profit)
 Great_Inc = max(Difference)
 Great_Inc_Pos = Difference.index(Great_Inc)
@@ -38,7 +37,7 @@ Great_Dec = min(Difference)
 Great_Dec_Pos = Difference.index(Great_Dec)
 Great_Dec_Dt = Date[Great_Dec_Pos]
 Avg_Chg = round(np.mean(Difference),2)
-Total_Months = len(Date)
+
 
 print("Financial Analysis" + "\n\n-------------------\n")
 print("Total Months: " + str(Total_Months))
