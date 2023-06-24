@@ -19,17 +19,18 @@ with open(BudgetPath) as csvfile:
         #add Dates to list
         Date.append(row[0])
         #add Profit to list
-        Profit.append(row[1])
+        Profit.append(int(row[1]))
 
 #Loop through the Profit List and calculate the difference values then store them
 for i in range(len(Profit) - 1):
-    Diff = int(Profit[i+1]) - int(Profit[i])
+    #Diff = int(Profit[i+1]) - int(Profit[i])
+    Diff = Profit[i+1] - Profit[i]
     Difference.append(int(Diff))
     #print(Difference[i]) - Delete Later
 
 
 #Calculate Results
-#Total = sum(int(Profit))
+Total = sum(Profit)
 Great_Inc = max(Difference)
 Great_Inc_Pos = Difference.index(Great_Inc)
 Great_Inc_Dt = Date[Great_Inc_Pos]
@@ -42,7 +43,7 @@ Total_Months = len(Date)
 print("Financial Analysis" + "\n\n-------------------\n")
 print("Total Months: " + str(Total_Months))
 print("\n")
-#print("Total: $" + str(Total))
+print("Total: $" + str(Total))
 print("\n")
 print("Average Change: $" + str(Avg_Chg))
 print("\n")
