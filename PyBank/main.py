@@ -38,14 +38,19 @@ Great_Dec_Pos = Difference.index(Great_Dec)
 Great_Dec_Dt = Date[Great_Dec_Pos]
 Avg_Chg = round(np.mean(Difference),2)
 
+#store the text for the output into a variable
+Report = "Financial Analysis" + "\n\n-------------------\n\n" \
+"Total Months: " + str(Total_Months) +"\n\n" \
+"Total: $" + str(Total) + "\n\n" \
+"Average Change: $" + str(Avg_Chg) + "\n\n" \
+"Greatest Increase in Profits: " + str(Great_Inc_Dt) + " ($"+ str(Great_Inc) + ")" + "\n\n" \
+"Greatest Increase in Profits: " + str(Great_Dec_Dt) + " ($"+ str(Great_Dec) + ")"
 
-print("Financial Analysis" + "\n\n-------------------\n")
-print("Total Months: " + str(Total_Months))
-print("\n")
-print("Total: $" + str(Total))
-print("\n")
-print("Average Change: $" + str(Avg_Chg))
-print("\n")
-print("Greatest Increase in Profits: " + str(Great_Inc_Dt) + " ($"+ str(Great_Inc) + ")")
-print("\n")
-print("Greatest Increase in Profits: " + str(Great_Dec_Dt) + " ($"+ str(Great_Dec) + ")")
+#print to terminal
+print(Report)
+
+#Create the txt file and write the text
+txt_file_path = os.path.join('analysis','text-file.txt').replace("\\","/")
+
+with open(txt_file_path, 'w') as file:
+    file.write(str(Report))
