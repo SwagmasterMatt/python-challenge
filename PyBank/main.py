@@ -32,10 +32,10 @@ Total_Months = len(Date)
 Total = sum(Profit)
 Great_Inc = max(Difference)
 Great_Inc_Pos = Difference.index(Great_Inc)
-Great_Inc_Dt = Date[Great_Inc_Pos]
+Great_Inc_Dt = Date[Great_Inc_Pos + 1]
 Great_Dec = min(Difference)
 Great_Dec_Pos = Difference.index(Great_Dec)
-Great_Dec_Dt = Date[Great_Dec_Pos]
+Great_Dec_Dt = Date[Great_Dec_Pos + 1]
 Avg_Chg = round(np.mean(Difference),2)
 
 #store the text for the output into a variable
